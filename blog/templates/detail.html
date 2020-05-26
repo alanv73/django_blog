@@ -1,0 +1,25 @@
+{% load static %}
+{% include '_header.html' %}
+    <div class="container">
+        <div class="row">
+            {% block content %}
+            <div class="col-11 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ article.title }}</h2>
+                        <p class="card-text">
+                            <!-- <small class="text-muted d-block">{{ article.last_modified|date:"D d M Y" }} {{ article.last_modified|time:"g:i A e" }}</small> -->
+                            <small class="text-muted d-block">last modified {{ article.last_modified|timesince }} ago</small>
+                            <small class="text-muted d-block">author: {{ article.author|title }}</small>
+                        </p>
+                        <p class="card-text">{{ article.body|linebreaks|urlize }}</p>
+                        <a href="/" class="btn btn-primary">Go Back</a>
+                    </div>
+                </div>
+            </div>
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+
+</html>

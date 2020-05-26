@@ -1,0 +1,23 @@
+{% load static %}
+{% include '_header.html' %}
+    <h6 class="text-center">There are currently {{ object_list.count }} articles</h6>
+    <div class="container">
+        <div class="row">
+            {% block content %}
+            {% for i in object_list %}
+            <div class="col-sm-6 my-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ i.title }}</h3>
+                        <p class="card-text text-truncate">{{ i.body }}</p>
+                        <a href="{% url 'detail' i.pk %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+
+</html>
